@@ -1,0 +1,12 @@
+﻿<Window x:Class="Metro_Screensaver.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Metro Screensaver" Height="250" Width="350" ResizeMode="NoResize" SourceInitialized="WindowSourceInitialized" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Height="32" VerticalAlignment="Top" FontSize="20" FontWeight="Bold">Metro Screensaver</Label>
+        <TextBlock Margin="5,32,0,98">By Joshua Park<LineBreak/><LineBreak/>Large portion of the code came from the Mosaic Project<LineBreak/>Program icon by Melih Bilgil</TextBlock>
+        <Button Margin="130,0,112,15" Name="okButton" Height="23" VerticalAlignment="Bottom" Click="okButton_Click">OK</Button>
+        <CheckBox Height="16" Margin="75.698,0,59.698,80" Name="blackCheckbox" VerticalAlignment="Bottom" Checked="blackCheckbox_Checked" Unchecked="blackCheckbox_Unchecked">Use solid black color background</CheckBox>
+        <CheckBox Height="16" Margin="75.698,0,132.302,54" Name="blackTextCheckbox" VerticalAlignment="Bottom" Checked="blackTextCheckbox_Checked" Unchecked="blackTextCheckbox_Unchecked">Use black text</CheckBox>
+    </Grid>
+</Window>

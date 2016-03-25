@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Metro_Screensaver.LockScreen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="500" Width="500" Foreground="White"
+    Loaded="UserControlLoaded" MouseLeftButtonDown="UserControlMouseLeftButtonDown" MouseLeftButtonUp="UserControlMouseLeftButtonUp" MouseMove="UserControlMouseMove"
+    Unloaded="UserControlUnloaded">
+    <UserControl.RenderTransform>
+        <TranslateTransform x:Name="Translate"/>
+    </UserControl.RenderTransform>
+    <UserControl.Resources>
+        <Storyboard x:Key="UnlockAnim" Completed="UnlockAnimCompleted">
+            <DoubleAnimation Storyboard.TargetName="Translate" Storyboard.TargetProperty="Y" Duration="0:0:0.35" AccelerationRatio="0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="MoveBackAnim" FillBehavior="Stop" Completed="MoveBackAnimCompleted">
+            <!--<DoubleAnimation Storyboard.TargetName="Translate" Storyboard.TargetProperty="Y" To="0" Duration="0:0:0.3" AccelerationRatio="0.6"/>-->
+            <DoubleAnimation Storyboard.TargetName="Translate" Storyboard.TargetProperty="Y" BeginTime="0:0:0" To="0" Duration="0:0:0.14" AccelerationRatio="0.3" DecelerationRatio="0.7"/>
+            <DoubleAnimation Storyboard.TargetName="Translate" Storyboard.TargetProperty="Y" BeginTime="0:0:0.14" To="-16" Duration="0:0:0.12" AccelerationRatio="0.3" DecelerationRatio="0.7"/>
+            <DoubleAnimation Storyboard.TargetName="Translate" Storyboard.TargetProperty="Y" BeginTime="0:0:0.26" To="0" Duration="0:0:0.10" AccelerationRatio="0.3" DecelerationRatio="0.7"/>
+        </Storyboard>
+        <Storyboard x:Key="JumpAnim" FillBehavior="Stop" Completed="JumpAnimCompleted">
+            <DoubleAnimation Storyboard.TargetName="Translate" Storyboard.TargetProperty="Y" From="0" To="-30" Duration="0:0:0.18" AccelerationRatio="0.3" DecelerationRatio="0.7"/>
+            <DoubleAnimation Storyboard.TargetName="Translate" Storyboard.TargetProperty="Y" BeginTime="0:0:0.18" To="0" Duration="0:0:0.14" AccelerationRatio="0.3" DecelerationRatio="0.7"/>
+            <DoubleAnimation Storyboard.TargetName="Translate" Storyboard.TargetProperty="Y" BeginTime="0:0:0.32" To="-10" Duration="0:0:0.12" AccelerationRatio="0.3" DecelerationRatio="0.7"/>
+            <DoubleAnimation Storyboard.TargetName="Translate" Storyboard.TargetProperty="Y" BeginTime="0:0:0.44" To="0" Duration="0:0:0.10" AccelerationRatio="0.3" DecelerationRatio="0.7"/>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid Name="mainGrid">
+        <Image Name="LockScreenBg" Stretch="UniformToFill"/>
+        <StackPanel Margin="80,0,0,80" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <TextBlock Name="Day" Text="Wednesday" FontSize="68" FontWeight="Light"/>
+            <TextBlock Name="Month" Text="June 01" FontSize="68" FontWeight="Light" Margin="0,-20,0,-40"/>
+            <TextBlock Name="Time" Text="0:00" FontSize="176" FontWeight="Light"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
